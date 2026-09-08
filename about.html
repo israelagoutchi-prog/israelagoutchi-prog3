@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Us | VOGUE Fashion Store</title>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        /* =========================================
+           GLOBAL
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #111111;
+            --white: #ffffff;
+            --cream: #f7f5f2;
+            --gray: #777777;
+            --light-gray: #e9e9e9;
+            --accent: #c89b5a;
+            --border: #e5e5e5;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            color: var(--black);
+            background: var(--white);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        header {
+            width: 100%;
+            padding: 22px 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .nav-icons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 19px;
+        }
+
+        .nav-icons span {
+            cursor: pointer;
+        }
+
+       /* =========================================
+   MOBILE MENU - DROPS FROM TOP
+========================================= */
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    max-height: 100vh;
+    background: var(--white);
+    z-index: 2000;
+
+    padding: 80px 30px 30px;
+
+    /* Start above the screen */
+    transform: translateY(-100%);
+
+    transition: transform 0.4s ease;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* OPEN MENU */
+
+.mobile-menu.active {
+    transform: translateY(0);
+}
+
+
+/* CLOSE BUTTON */
+
+.mobile-menu-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+
+    border: none;
+    background: transparent;
+
+    font-size: 32px;
+    cursor: pointer;
+
+    color: var(--black);
+}
+
+
+/* MENU LIST */
+
+.mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-menu li {
+    border-bottom: 1px solid var(--border);
+}
+
+.mobile-menu a {
+    display: block;
+    padding: 17px 0;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    transition: 0.3s;
+}
+
+.mobile-menu a:hover,
+.mobile-menu a.active {
+    color: var(--accent);
+}
+
+
+/* DARK BACKGROUND */
+
+.menu-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    z-index: 1500;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.3s;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .about-hero {
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+
+            background:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.50),
+                    rgba(0, 0, 0, 0.50)
+                ),
+                url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1800&q=80");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .about-hero-content {
+            max-width: 850px;
+            padding: 30px;
+        }
+
+        .about-hero span {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        .about-hero h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(55px, 9vw, 115px);
+            margin: 20px 0;
+        }
+
+        .about-hero p {
+            max-width: 650px;
+            margin: auto;
+            color: #eeeeee;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+
+        /* =========================================
+           GENERAL SECTION
+        ========================================= */
+
+        .section {
+            padding: 110px 6%;
+        }
+
+        .section-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+        }
+
+
+        /* =========================================
+           OUR STORY
+        ========================================= */
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .story-image {
+            height: 650px;
+            overflow: hidden;
+        }
+
+        .story-image img {
+            height: 100%;
+            object-fit: cover;
+            transition: 0.7s;
+        }
+
+        .story-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .story-content h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(45px, 5vw, 70px);
+            line-height: 1.1;
+            margin: 20px 0 30px;
+        }
+
+        .story-content p {
+            color: var(--gray);
+            line-height: 1.9;
+            margin-bottom: 20px;
+            max-width: 550px;
+        }
+
+
+        /* =========================================
+           STATISTICS
+        ========================================= */
+
+        .stats-section {
+            background: var(--cream);
+            padding: 90px 6%;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+
+        .stat p {
+            color: var(--gray);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+
+        /* =========================================
+           OUR VALUES
+        ========================================= */
+
+        .values-header {
+            max-width: 700px;
+            margin-bottom: 60px;
+        }
+
+        .values-header h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(45px, 5vw, 70px);
+            margin: 20px 0;
+        }
+
+        .values-header p {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .value-card {
+            padding: 45px 35px;
+            border: 1px solid var(--border);
+            transition: 0.4s;
+        }
+
+        .value-card:hover {
+            background: var(--black);
+            color: var(--white);
+            transform: translateY(-8px);
+        }
+
+        .value-number {
+            font-family: "Playfair Display", serif;
+            font-size: 40px;
+            color: var(--accent);
+            margin-bottom: 35px;
+        }
+
+        .value-card h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .value-card p {
+            color: var(--gray);
+            line-height: 1.8;
+            transition: 0.3s;
+        }
+
+        .value-card:hover p {
+            color: #bbbbbb;
+        }
+
+
+        /* =========================================
+           FASHION STATEMENT
+        ========================================= */
+
+        .fashion-statement {
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 80px 6%;
+
+            background:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.55),
+                    rgba(0, 0, 0, 0.55)
+                ),
+                url("https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=1800&q=80");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .statement-content {
+            max-width: 900px;
+        }
+
+        .statement-content span {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--accent);
+        }
+
+        .statement-content h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(45px, 7vw, 95px);
+            line-height: 1.1;
+            margin: 25px 0;
+        }
+
+        .statement-content p {
+            max-width: 650px;
+            margin: auto;
+            color: #dddddd;
+            line-height: 1.8;
+        }
+
+
+        /* =========================================
+           CTA
+        ========================================= */
+
+        .about-cta {
+            padding: 110px 6%;
+            background: var(--cream);
+            text-align: center;
+        }
+
+        .about-cta h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(45px, 6vw, 75px);
+            margin-bottom: 20px;
+        }
+
+        .about-cta p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 35px;
+            line-height: 1.8;
+        }
+
+        .btn-dark {
+            display: inline-block;
+            padding: 17px 35px;
+            background: var(--black);
+            color: var(--white);
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .btn-dark:hover {
+            background: var(--accent);
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            background: #0a0a0a;
+            color: var(--white);
+            padding: 70px 6% 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            color: #999;
+            line-height: 1.7;
+            max-width: 300px;
+        }
+
+        .footer-column h4 {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #999;
+            margin-bottom: 12px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #222;
+            padding-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            color: #777;
+            font-size: 13px;
+        }
+
+
+        /* =========================================
+           TABLET
+        ========================================= */
+
+        @media (max-width: 1000px) {
+
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .story-image {
+                height: 600px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 650px) {
+
+            header {
+                padding: 18px 5%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-icons {
+                gap: 15px;
+            }
+
+            .section {
+                padding: 75px 5%;
+            }
+
+            .about-hero {
+                min-height: 520px;
+            }
+
+            .about-hero h1 {
+                font-size: 60px;
+            }
+
+            .story-image {
+                height: 500px;
+            }
+
+            .stats-section {
+                padding: 70px 5%;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px 20px;
+            }
+
+            .stat h3 {
+                font-size: 42px;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .fashion-statement {
+                min-height: 550px;
+            }
+
+            .about-cta {
+                padding: 80px 5%;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+        }
+
+
+        /* =========================================
+           HIDE MOBILE MENU ON DESKTOP
+        ========================================= */
+
+        @media (min-width: 651px) {
+
+            .mobile-menu,
+            .menu-overlay {
+                display: none;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         HEADER
+    ========================================= -->
+
+    <header>
+
+        <a href="index.html" class="logo">
+            VOGUE.
+        </a>
+
+
+        <nav>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="shop.html">
+                        Shop
+                    </a>
+                </li>
+
+                <li>
+                    <a href="collections.html">
+                        Collections
+                    </a>
+                </li>
+
+                <li>
+                    <a href="newarivals.html">
+                        New Arrivals
+                    </a>
+                </li>
+
+                <li>
+                    <a href="about.html" class="active">
+                        About
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+
+        <div class="nav-icons">
+
+            <span>
+                ⌕
+            </span>
+
+            <span>
+                ♡
+            </span>
+
+            <span>
+                🛍
+            </span>
+
+            <!-- CLICKABLE MOBILE MENU BUTTON -->
+
+            <button
+                class="menu-btn"
+                id="menuBtn"
+                aria-label="Open menu">
+
+                ☰
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================
+         MOBILE MENU
+    ========================================= -->
+
+    <div
+        class="menu-overlay"
+        id="menuOverlay">
+    </div>
+
+
+    <div
+        class="mobile-menu"
+        id="mobileMenu">
+
+        <button
+            class="mobile-menu-close"
+            id="menuClose"
+            aria-label="Close menu">
+
+            ×
+
+        </button>
+
+
+        <ul>
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="shop.html">
+                    Shop
+                </a>
+            </li>
+
+            <li>
+                <a href="collections.html">
+                    Collections
+                </a>
+            </li>
+
+            <li>
+                <a href="newarivals.html">
+                    New Arrivals
+                </a>
+            </li>
+
+            <li>
+                <a href="about.html" class="active">
+                    About
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+
+
+    <!-- =========================================
+         HERO
+    ========================================= -->
+
+    <section class="about-hero">
+
+        <div class="about-hero-content">
+
+            <span>
+                Our Story
+            </span>
+
+            <h1>
+                About VOGUE.
+            </h1>
+
+            <p>
+                We believe fashion is more than what you wear.
+                It is a way to express who you are, where you are
+                going and how you choose to show up in the world.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         OUR STORY
+    ========================================= -->
+
+    <section class="section">
+
+        <div class="story-grid">
+
+            <div class="story-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80"
+                    alt="VOGUE Fashion Store">
+
+            </div>
+
+
+            <div class="story-content">
+
+                <span class="section-label">
+                    Who We Are
+                </span>
+
+                <h2>
+                    Fashion Designed Around You.
+                </h2>
+
+                <p>
+                    VOGUE is a modern fashion destination created
+                    for people who believe style should feel
+                    personal, confident and effortless.
+                </p>
+
+                <p>
+                    Our collections bring together timeless
+                    essentials, contemporary trends and statement
+                    pieces that allow every individual to create
+                    a wardrobe that reflects their personality.
+                </p>
+
+                <p>
+                    From everyday essentials to unforgettable
+                    occasion wear, we carefully curate fashion
+                    designed to move with your lifestyle.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         STATISTICS
+    ========================================= -->
+
+    <section class="stats-section">
+
+        <div class="stats-grid">
+
+            <div class="stat">
+
+                <h3>
+                    10K+
+                </h3>
+
+                <p>
+                    Happy Customers
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <h3>
+                    500+
+                </h3>
+
+                <p>
+                    Fashion Pieces
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <h3>
+                    25+
+                </h3>
+
+                <p>
+                    Fashion Brands
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <h3>
+                    5+
+                </h3>
+
+                <p>
+                    Years Of Style
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         OUR VALUES
+    ========================================= -->
+
+    <section class="section">
+
+        <div class="values-header">
+
+            <span class="section-label">
+                What We Believe
+            </span>
+
+            <h2>
+                Our Values Shape Everything We Create.
+            </h2>
+
+            <p>
+                From the pieces we select to the experience we
+                create for our customers, these principles guide
+                everything we do.
+            </p>
+
+        </div>
+
+
+        <div class="values-grid">
+
+
+            <!-- VALUE 01 -->
+
+            <div class="value-card">
+
+                <div class="value-number">
+                    01
+                </div>
+
+                <h3>
+                    Individuality
+                </h3>
+
+                <p>
+                    We believe fashion should empower people to
+                    express their unique identity without limits.
+                </p>
+
+            </div>
+
+
+            <!-- VALUE 02 -->
+
+            <div class="value-card">
+
+                <div class="value-number">
+                    02
+                </div>
+
+                <h3>
+                    Quality
+                </h3>
+
+                <p>
+                    We focus on carefully selected pieces that
+                    combine comfort, quality and timeless design.
+                </p>
+
+            </div>
+
+
+            <!-- VALUE 03 -->
+
+            <div class="value-card">
+
+                <div class="value-number">
+                    03
+                </div>
+
+                <h3>
+                    Confidence
+                </h3>
+
+                <p>
+                    Our goal is simple: help you feel confident
+                    every time you step out into the world.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         FASHION STATEMENT
+    ========================================= -->
+
+    <section class="fashion-statement">
+
+        <div class="statement-content">
+
+            <span>
+                Our Philosophy
+            </span>
+
+            <h2>
+                Wear What Makes You Feel Like You.
+            </h2>
+
+            <p>
+                Trends may change, but personal style remains.
+                VOGUE exists to help you discover, explore and
+                celebrate fashion in a way that feels authentic
+                to you.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         CTA
+    ========================================= -->
+
+    <section class="about-cta">
+
+        <h2>
+            Discover Your Next Look.
+        </h2>
+
+        <p>
+            Explore our latest collections and discover fashion
+            designed for every moment, mood and occasion.
+        </p>
+
+        <a
+            href="shop.html"
+            class="btn-dark">
+
+            Shop The Collection
+
+        </a>
+
+    </section>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer>
+
+        <div class="footer-grid">
+
+
+            <div class="footer-brand">
+
+                <h2>
+                    VOGUE.
+                </h2>
+
+                <p>
+                    A modern fashion destination bringing you
+                    timeless, expressive and contemporary styles.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Shop
+                </h4>
+
+                <a href="shop.html">
+                    Women
+                </a>
+
+                <a href="shop.html">
+                    Men
+                </a>
+
+                <a href="shop.html">
+                    Accessories
+                </a>
+
+                <a href="newarivals.html">
+                    New Arrivals
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Help
+                </h4>
+
+                <a href="#">
+                    Contact Us
+                </a>
+
+                <a href="#">
+                    Shipping
+                </a>
+
+                <a href="#">
+                    Returns
+                </a>
+
+                <a href="#">
+                    FAQ
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Follow Us
+                </h4>
+
+                <a href="#">
+                    Instagram
+                </a>
+
+                <a href="#">
+                    Facebook
+                </a>
+
+                <a href="#">
+                    TikTok
+                </a>
+
+                <a href="#">
+                    Pinterest
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 VOGUE Fashion Store. All Rights Reserved.
+            </span>
+
+            <span>
+                Privacy Policy | Terms & Conditions
+            </span>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================= -->
+
+    <script>
+
+        /* =====================================
+           MOBILE MENU
+        ===================================== */
+
+        const menuBtn =
+            document.getElementById("menuBtn");
+
+        const mobileMenu =
+            document.getElementById("mobileMenu");
+
+        const menuClose =
+            document.getElementById("menuClose");
+
+        const menuOverlay =
+            document.getElementById("menuOverlay");
+
+
+        /* OPEN MENU */
+
+        menuBtn.addEventListener("click", function () {
+
+            mobileMenu.classList.add("active");
+
+            menuOverlay.classList.add("active");
+
+            document.body.style.overflow = "hidden";
+
+        });
+
+
+        /* CLOSE MENU */
+
+        menuClose.addEventListener("click", function () {
+
+            mobileMenu.classList.remove("active");
+
+            menuOverlay.classList.remove("active");
+
+            document.body.style.overflow = "";
+
+        });
+
+
+        /* CLOSE WHEN CLICKING OVERLAY */
+
+        menuOverlay.addEventListener("click", function () {
+
+            mobileMenu.classList.remove("active");
+
+            menuOverlay.classList.remove("active");
+
+            document.body.style.overflow = "";
+
+        });
+
+
+        /* CLOSE MENU AFTER CLICKING A LINK */
+
+        const mobileMenuLinks =
+            mobileMenu.querySelectorAll("a");
+
+
+        mobileMenuLinks.forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                mobileMenu.classList.remove("active");
+
+                menuOverlay.classList.remove("active");
+
+                document.body.style.overflow = "";
+
+            });
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>

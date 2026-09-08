@@ -1,0 +1,2081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Us | VOGUE Fashion Store</title>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #111111;
+            --white: #ffffff;
+            --cream: #f7f5f2;
+            --gray: #777777;
+            --light-gray: #eeeeee;
+            --accent: #c89b5a;
+            --border: #e5e5e5;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            color: var(--black);
+            background: var(--white);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+            font-family: inherit;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+            height: 80px;
+            padding: 0 6%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 500;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+
+            width: 0;
+            height: 1px;
+
+            background: var(--black);
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-icons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-icons span {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .menu-btn {
+            display: none;
+
+            border: none;
+            background: none;
+
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           MOBILE MENU
+        ===================================================== */
+
+        .mobile-menu {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: auto;
+            max-height: 100vh;
+
+            background: var(--white);
+
+            z-index: 2000;
+
+            padding: 80px 30px 30px;
+
+            transform: translateY(-100%);
+
+            transition: transform 0.4s ease;
+
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+
+            top: 20px;
+            right: 25px;
+
+            border: none;
+            background: transparent;
+
+            font-size: 32px;
+            cursor: pointer;
+
+            color: var(--black);
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-menu li {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .mobile-menu a {
+            display: block;
+
+            padding: 17px 0;
+
+            font-size: 16px;
+            font-weight: 500;
+
+            transition: 0.3s;
+        }
+
+        .mobile-menu a:hover,
+        .mobile-menu a.active {
+            color: var(--accent);
+        }
+
+        .menu-overlay {
+            position: fixed;
+            inset: 0;
+
+            background: rgba(0, 0, 0, 0.45);
+
+            z-index: 1500;
+
+            opacity: 0;
+            visibility: hidden;
+
+            transition: 0.3s;
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .contact-hero {
+            min-height: 430px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 70px 20px;
+
+            color: var(--white);
+
+            background:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.55),
+                    rgba(0, 0, 0, 0.65)
+                ),
+                url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1800&q=85");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .contact-hero-content {
+            max-width: 750px;
+        }
+
+        .contact-label {
+            font-size: 12px;
+            letter-spacing: 4px;
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        .contact-hero h1 {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(50px, 7vw, 80px);
+
+            line-height: 1.05;
+
+            margin-bottom: 20px;
+        }
+
+        .contact-hero p {
+            max-width: 600px;
+
+            margin: auto;
+
+            color: #eeeeee;
+
+            font-size: 15px;
+        }
+
+
+        /* =====================================================
+           CONTACT INTRO
+        ===================================================== */
+
+        .contact-intro {
+            text-align: center;
+
+            padding: 80px 20px 45px;
+        }
+
+        .contact-intro span {
+            color: var(--accent);
+
+            font-size: 12px;
+
+            letter-spacing: 3px;
+
+            font-weight: 600;
+        }
+
+        .contact-intro h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 44px;
+
+            margin: 10px 0 15px;
+        }
+
+        .contact-intro p {
+            max-width: 620px;
+
+            margin: auto;
+
+            color: var(--gray);
+
+            font-size: 15px;
+        }
+
+
+        /* =====================================================
+           CONTACT SECTION
+        ===================================================== */
+
+        .contact-section {
+            padding: 30px 6% 100px;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 0.85fr 1.35fr;
+
+            gap: 70px;
+        }
+
+
+        /* =====================================================
+           CONTACT INFORMATION
+        ===================================================== */
+
+        .contact-info {
+            background: var(--black);
+
+            color: var(--white);
+
+            padding: 50px 40px;
+
+            min-height: 600px;
+        }
+
+        .contact-info h3 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 32px;
+
+            margin-bottom: 15px;
+        }
+
+        .contact-info > p {
+            color: #aaa;
+
+            font-size: 14px;
+
+            margin-bottom: 40px;
+        }
+
+        .info-item {
+            display: flex;
+
+            gap: 18px;
+
+            margin-bottom: 30px;
+        }
+
+        .info-icon {
+            width: 45px;
+            height: 45px;
+
+            border: 1px solid #444;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 18px;
+
+            flex-shrink: 0;
+        }
+
+        .info-text h4 {
+            font-size: 12px;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 4px;
+        }
+
+        .info-text p,
+        .info-text a {
+            color: #aaa;
+
+            font-size: 13px;
+
+            transition: 0.3s;
+        }
+
+        .info-text a:hover {
+            color: var(--accent);
+        }
+
+        .social-title {
+            font-size: 12px;
+
+            letter-spacing: 1px;
+
+            margin-top: 45px;
+
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+
+            gap: 10px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+
+            border: 1px solid #444;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 12px;
+
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--white);
+        }
+
+
+        /* =====================================================
+           CONTACT FORM
+        ===================================================== */
+
+        .contact-form-wrapper {
+            padding: 10px 0;
+        }
+
+        .contact-form-wrapper h3 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 34px;
+
+            margin-bottom: 10px;
+        }
+
+        .contact-form-wrapper > p {
+            color: var(--gray);
+
+            font-size: 14px;
+
+            margin-bottom: 35px;
+        }
+
+        .form-row {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            margin-bottom: 8px;
+
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+
+            border: 1px solid var(--border);
+
+            background: var(--white);
+
+            padding: 14px 15px;
+
+            outline: none;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--black);
+        }
+
+        .form-group textarea {
+            height: 150px;
+
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+
+            border: none;
+
+            background: var(--black);
+
+            color: var(--white);
+
+            padding: 16px;
+
+            cursor: pointer;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            letter-spacing: 1.5px;
+
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent);
+        }
+
+
+        /* =====================================================
+           SUCCESS MESSAGE
+        ===================================================== */
+
+        .success-message {
+            display: none;
+
+            background: #f0f8f3;
+
+            border: 1px solid #cce5d5;
+
+            color: #27643d;
+
+            padding: 15px;
+
+            margin-top: 20px;
+
+            font-size: 13px;
+
+            text-align: center;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+
+        /* =====================================================
+           FAQ
+        ===================================================== */
+
+        .faq-section {
+            background: var(--cream);
+
+            padding: 90px 6%;
+        }
+
+        .faq-header {
+            text-align: center;
+
+            margin-bottom: 50px;
+        }
+
+        .faq-header span {
+            color: var(--accent);
+
+            font-size: 12px;
+
+            letter-spacing: 3px;
+
+            font-weight: 600;
+        }
+
+        .faq-header h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 42px;
+
+            margin-top: 10px;
+        }
+
+        .faq-container {
+            max-width: 850px;
+
+            margin: auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .faq-question {
+            width: 100%;
+
+            padding: 22px 20px;
+
+            border: none;
+
+            background: transparent;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            text-align: left;
+
+            cursor: pointer;
+
+            font-size: 14px;
+
+            font-weight: 600;
+        }
+
+        .faq-question span {
+            font-size: 22px;
+
+            font-weight: 400;
+
+            transition: 0.3s;
+        }
+
+        .faq-answer {
+            max-height: 0;
+
+            overflow: hidden;
+
+            transition: max-height 0.35s ease;
+        }
+
+        .faq-answer p {
+            padding: 0 20px 22px;
+
+            color: var(--gray);
+
+            font-size: 13px;
+        }
+
+        .faq-item.active .faq-question span {
+            transform: rotate(45deg);
+        }
+
+
+        /* =====================================================
+           NEWSLETTER
+        ===================================================== */
+
+        .newsletter {
+            padding: 80px 20px;
+
+            text-align: center;
+
+            background: var(--white);
+        }
+
+        .newsletter h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 40px;
+
+            margin-bottom: 10px;
+        }
+
+        .newsletter p {
+            color: var(--gray);
+
+            font-size: 14px;
+
+            margin-bottom: 25px;
+        }
+
+        .newsletter-form {
+            max-width: 500px;
+
+            margin: auto;
+
+            display: flex;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+
+            border: 1px solid var(--border);
+
+            padding: 14px;
+
+            outline: none;
+
+            font-size: 13px;
+        }
+
+        .newsletter-form button {
+            border: none;
+
+            background: var(--black);
+
+            color: var(--white);
+
+            padding: 0 25px;
+
+            cursor: pointer;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            letter-spacing: 1px;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--accent);
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            background: var(--black);
+
+            color: var(--white);
+
+            padding: 70px 6% 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+
+            gap: 50px;
+
+            padding-bottom: 50px;
+
+            border-bottom: 1px solid #333;
+        }
+
+        .footer-logo {
+            font-family: "Playfair Display", serif;
+
+            font-size: 30px;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 15px;
+        }
+
+        .footer-about {
+            color: #aaa;
+
+            max-width: 330px;
+
+            font-size: 14px;
+        }
+
+        .footer-column h4 {
+            font-size: 13px;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 20px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            color: #aaa;
+
+            font-size: 13px;
+
+            transition: 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding-top: 25px;
+
+            color: #777;
+
+            font-size: 12px;
+        }
+
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media (max-width: 1000px) {
+
+            .contact-container {
+                grid-template-columns: 1fr;
+
+                gap: 50px;
+            }
+
+            .contact-info {
+                min-height: auto;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 650px) {
+
+            header {
+                height: 70px;
+
+                padding: 0 20px;
+            }
+
+            .logo {
+                font-size: 26px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .nav-icons {
+                gap: 15px;
+            }
+
+            .nav-icons span {
+                font-size: 18px;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+
+            .contact-hero {
+                min-height: 400px;
+
+                padding: 60px 25px;
+            }
+
+            .contact-hero h1 {
+                font-size: 48px;
+            }
+
+            .contact-hero p {
+                font-size: 14px;
+            }
+
+
+            .contact-intro {
+                padding: 60px 20px 35px;
+            }
+
+            .contact-intro h2 {
+                font-size: 36px;
+            }
+
+
+            .contact-section {
+                padding: 20px 20px 70px;
+            }
+
+            .contact-container {
+                gap: 40px;
+            }
+
+
+            .contact-info {
+                padding: 40px 25px;
+            }
+
+            .contact-info h3 {
+                font-size: 28px;
+            }
+
+
+            .form-row {
+                grid-template-columns: 1fr;
+
+                gap: 0;
+            }
+
+
+            .contact-form-wrapper h3 {
+                font-size: 30px;
+            }
+
+
+            .faq-section {
+                padding: 70px 20px;
+            }
+
+            .faq-header h2 {
+                font-size: 34px;
+            }
+
+
+            .newsletter {
+                padding: 65px 20px;
+            }
+
+            .newsletter h2 {
+                font-size: 34px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+
+                gap: 10px;
+            }
+
+            .newsletter-form input {
+                width: 100%;
+            }
+
+            .newsletter-form button {
+                padding: 14px;
+            }
+
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+
+                gap: 35px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+
+                text-align: center;
+            }
+
+        }
+
+
+        @media (min-width: 651px) {
+
+            .mobile-menu,
+            .menu-overlay {
+                display: none;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
+
+    <header>
+
+        <a href="index.html" class="logo">
+            VOGUE.
+        </a>
+
+
+        <nav>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="shop.html">
+                        Shop
+                    </a>
+                </li>
+
+                <li>
+                    <a href="collections.html">
+                        Collections
+                    </a>
+                </li>
+
+                <li>
+                    <a href="newarivals.html">
+                        New Arrivals
+                    </a>
+                </li>
+
+                <li>
+                    <a href="about.html">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contact.html" class="active">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+
+        <div class="nav-icons">
+
+            <span title="Search">
+                ⌕
+            </span>
+
+            <span title="Wishlist">
+                ♡
+            </span>
+
+            <span title="Shopping Bag">
+                🛍
+            </span>
+
+            <button
+                class="menu-btn"
+                id="menuBtn"
+                aria-label="Open menu"
+            >
+                ☰
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MOBILE MENU
+    ===================================================== -->
+
+    <div
+        class="menu-overlay"
+        id="menuOverlay"
+    ></div>
+
+
+    <div
+        class="mobile-menu"
+        id="mobileMenu"
+    >
+
+        <button
+            class="mobile-menu-close"
+            id="menuClose"
+            aria-label="Close menu"
+        >
+            ×
+        </button>
+
+
+        <ul>
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="shop.html">
+                    Shop
+                </a>
+            </li>
+
+            <li>
+                <a href="collections.html">
+                    Collections
+                </a>
+            </li>
+
+            <li>
+                <a href="newarivals.html">
+                    New Arrivals
+                </a>
+            </li>
+
+            <li>
+                <a href="about.html">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html" class="active">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- =====================================================
+         CONTACT HERO
+    ===================================================== -->
+
+    <section class="contact-hero">
+
+        <div class="contact-hero-content">
+
+            <div class="contact-label">
+                VOGUE CONTACT
+            </div>
+
+            <h1>
+                Let's Talk.
+            </h1>
+
+            <p>
+                Have a question about an order, our collections,
+                sizing or anything else? Our team is here to help.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         INTRO
+    ===================================================== -->
+
+    <section class="contact-intro">
+
+        <span>
+            GET IN TOUCH
+        </span>
+
+        <h2>
+            We'd Love To Hear From You
+        </h2>
+
+        <p>
+            Whether you need help choosing the perfect piece or simply
+            want to say hello, reach out to the VOGUE team.
+        </p>
+
+    </section>
+
+
+    <!-- =====================================================
+         CONTACT SECTION
+    ===================================================== -->
+
+    <section class="contact-section">
+
+        <div class="contact-container">
+
+
+            <!-- CONTACT INFORMATION -->
+
+            <div class="contact-info">
+
+                <h3>
+                    Contact Information
+                </h3>
+
+                <p>
+                    Reach out to us through any of the channels below.
+                    We aim to respond to all enquiries as quickly as possible.
+                </p>
+
+
+                <!-- EMAIL -->
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+                        ✉
+                    </div>
+
+                    <div class="info-text">
+
+                        <h4>
+                            EMAIL
+                        </h4>
+
+                        <a href="mailto:hello@voguefashion.com">
+                            hello@voguefashion.com
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PHONE -->
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+                        ☎
+                    </div>
+
+                    <div class="info-text">
+
+                        <h4>
+                            PHONE
+                        </h4>
+
+                        <a href="tel:+2348000000000">
+                            +234 800 000 0000
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ADDRESS -->
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+                        ⌖
+                    </div>
+
+                    <div class="info-text">
+
+                        <h4>
+                            STORE
+                        </h4>
+
+                        <p>
+                            Lagos, Nigeria
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- HOURS -->
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+                        ◷
+                    </div>
+
+                    <div class="info-text">
+
+                        <h4>
+                            OPENING HOURS
+                        </h4>
+
+                        <p>
+                            Monday – Saturday<br>
+                            9:00 AM – 7:00 PM
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="social-title">
+                    FOLLOW VOGUE
+                </div>
+
+
+                <div class="social-links">
+
+                    <a href="#" aria-label="Instagram">
+                        IG
+                    </a>
+
+                    <a href="#" aria-label="Facebook">
+                        FB
+                    </a>
+
+                    <a href="#" aria-label="TikTok">
+                        TK
+                    </a>
+
+                    <a href="#" aria-label="Pinterest">
+                        PT
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTACT FORM -->
+
+            <div class="contact-form-wrapper">
+
+                <h3>
+                    Send Us A Message
+                </h3>
+
+                <p>
+                    Fill in the form below and a member of our team
+                    will get back to you.
+                </p>
+
+
+                <form id="contactForm">
+
+
+                    <div class="form-row">
+
+
+                        <div class="form-group">
+
+                            <label for="firstName">
+                                FIRST NAME
+                            </label>
+
+                            <input
+                                type="text"
+                                id="firstName"
+                                placeholder="Your first name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="lastName">
+                                LAST NAME
+                            </label>
+
+                            <input
+                                type="text"
+                                id="lastName"
+                                placeholder="Your last name"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-row">
+
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                EMAIL ADDRESS
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="you@example.com"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="phone">
+                                PHONE NUMBER
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                placeholder="+234..."
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="subject">
+                            SUBJECT
+                        </label>
+
+                        <select
+                            id="subject"
+                            required
+                        >
+
+                            <option value="">
+                                Select a subject
+                            </option>
+
+                            <option value="order">
+                                Order Enquiry
+                            </option>
+
+                            <option value="product">
+                                Product Information
+                            </option>
+
+                            <option value="delivery">
+                                Delivery
+                            </option>
+
+                            <option value="returns">
+                                Returns & Exchange
+                            </option>
+
+                            <option value="other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="message">
+                            MESSAGE
+                        </label>
+
+                        <textarea
+                            id="message"
+                            placeholder="How can we help you?"
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="submit-btn"
+                    >
+                        SEND MESSAGE
+                    </button>
+
+
+                    <div
+                        class="success-message"
+                        id="successMessage"
+                    >
+                        Thank you! Your message has been received.
+                        Our team will get back to you shortly.
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FAQ
+    ===================================================== -->
+
+    <section class="faq-section">
+
+        <div class="faq-header">
+
+            <span>
+                NEED HELP?
+            </span>
+
+            <h2>
+                Frequently Asked Questions
+            </h2>
+
+        </div>
+
+
+        <div class="faq-container">
+
+
+            <!-- FAQ 1 -->
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span>
+                        How long does delivery take?
+                    </span>
+
+                    <span>
+                        +
+                    </span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        Delivery times vary depending on your location.
+                        Our team will provide delivery details when your
+                        order is confirmed.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FAQ 2 -->
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span>
+                        Can I return or exchange an item?
+                    </span>
+
+                    <span>
+                        +
+                    </span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        Yes. Eligible items can be returned or exchanged
+                        according to our return policy. Please contact our
+                        support team for assistance.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FAQ 3 -->
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span>
+                        How do I know which size to order?
+                    </span>
+
+                    <span>
+                        +
+                    </span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        Each product includes sizing information. If you
+                        are unsure, contact our team and we will help you
+                        select the best size.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FAQ 4 -->
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span>
+                        Can I track my order?
+                    </span>
+
+                    <span>
+                        +
+                    </span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        Once your order has been dispatched, tracking
+                        information can be provided to you.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FAQ 5 -->
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span>
+                        Do you have a physical store?
+                    </span>
+
+                    <span>
+                        +
+                    </span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        Yes. VOGUE operates from Lagos, Nigeria.
+                        Contact our team for current store information
+                        and opening hours.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         NEWSLETTER
+    ===================================================== -->
+
+    <section class="newsletter">
+
+        <h2>
+            Stay In The VOGUE
+        </h2>
+
+        <p>
+            Subscribe for new collections, exclusive offers and fashion inspiration.
+        </p>
+
+
+        <form class="newsletter-form" id="newsletterForm">
+
+            <input
+                type="email"
+                placeholder="Enter your email address"
+                required
+            >
+
+            <button type="submit">
+                SUBSCRIBE
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer>
+
+        <div class="footer-grid">
+
+
+            <!-- BRAND -->
+
+            <div>
+
+                <div class="footer-logo">
+                    VOGUE.
+                </div>
+
+                <p class="footer-about">
+                    A modern fashion destination created for individuals
+                    who appreciate timeless design, quality and effortless style.
+                </p>
+
+            </div>
+
+
+            <!-- SHOP -->
+
+            <div class="footer-column">
+
+                <h4>
+                    SHOP
+                </h4>
+
+                <ul>
+
+                    <li>
+                        <a href="women.html">
+                            Women
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="men.html">
+                            Men
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="collections.html">
+                            Accessories
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="newarivals.html">
+                            New Arrivals
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- COMPANY -->
+
+            <div class="footer-column">
+
+                <h4>
+                    COMPANY
+                </h4>
+
+                <ul>
+
+                    <li>
+                        <a href="about.html">
+                            About Us
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">
+                            Contact
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Privacy Policy
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Terms & Conditions
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- SOCIAL -->
+
+            <div class="footer-column">
+
+                <h4>
+                    FOLLOW US
+                </h4>
+
+                <ul>
+
+                    <li>
+                        <a href="#">
+                            Instagram
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Facebook
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            TikTok
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Pinterest
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 VOGUE. All Rights Reserved.
+            </span>
+
+            <span>
+                Designed with style.
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+        /* =====================================================
+           MOBILE MENU
+        ===================================================== */
+
+        const menuBtn =
+            document.getElementById("menuBtn");
+
+        const mobileMenu =
+            document.getElementById("mobileMenu");
+
+        const menuClose =
+            document.getElementById("menuClose");
+
+        const menuOverlay =
+            document.getElementById("menuOverlay");
+
+
+        menuBtn.addEventListener("click", function () {
+
+            mobileMenu.classList.add("active");
+
+            menuOverlay.classList.add("active");
+
+            document.body.style.overflow = "hidden";
+
+        });
+
+
+        function closeMobileMenu() {
+
+            mobileMenu.classList.remove("active");
+
+            menuOverlay.classList.remove("active");
+
+            document.body.style.overflow = "";
+
+        }
+
+
+        menuClose.addEventListener(
+            "click",
+            closeMobileMenu
+        );
+
+
+        menuOverlay.addEventListener(
+            "click",
+            closeMobileMenu
+        );
+
+
+        const mobileMenuLinks =
+            mobileMenu.querySelectorAll("a");
+
+
+        mobileMenuLinks.forEach(function (link) {
+
+            link.addEventListener(
+                "click",
+                closeMobileMenu
+            );
+
+        });
+
+
+        /* =====================================================
+           CONTACT FORM
+        ===================================================== */
+
+        const contactForm =
+            document.getElementById("contactForm");
+
+        const successMessage =
+            document.getElementById("successMessage");
+
+
+        contactForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+                successMessage.classList.add("show");
+
+                contactForm.reset();
+
+                setTimeout(function () {
+
+                    successMessage.classList.remove("show");
+
+                }, 5000);
+
+            }
+        );
+
+
+        /* =====================================================
+           FAQ ACCORDION
+        ===================================================== */
+
+        const faqItems =
+            document.querySelectorAll(".faq-item");
+
+
+        faqItems.forEach(function (item) {
+
+            const question =
+                item.querySelector(".faq-question");
+
+            const answer =
+                item.querySelector(".faq-answer");
+
+
+            question.addEventListener(
+                "click",
+                function () {
+
+                    const isActive =
+                        item.classList.contains("active");
+
+
+                    faqItems.forEach(function (otherItem) {
+
+                        otherItem.classList.remove("active");
+
+                        otherItem.querySelector(
+                            ".faq-answer"
+                        ).style.maxHeight = null;
+
+                    });
+
+
+                    if (!isActive) {
+
+                        item.classList.add("active");
+
+                        answer.style.maxHeight =
+                            answer.scrollHeight + "px";
+
+                    }
+
+                }
+            );
+
+        });
+
+
+        /* =====================================================
+           NEWSLETTER
+        ===================================================== */
+
+        const newsletterForm =
+            document.getElementById("newsletterForm");
+
+
+        newsletterForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+                alert(
+                    "Thank you for subscribing to VOGUE!"
+                );
+
+                newsletterForm.reset();
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>

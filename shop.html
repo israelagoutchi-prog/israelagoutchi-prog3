@@ -1,0 +1,1873 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shop | VOGUE Fashion Store</title>
+
+
+    <!-- GOOGLE FONTS -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+
+        /* ===================================
+           GLOBAL
+        =================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        :root {
+            --black: #111111;
+            --white: #ffffff;
+            --cream: #f7f5f2;
+            --gray: #777777;
+            --light-gray: #e9e9e9;
+            --accent: #c89b5a;
+            --border: #e5e5e5;
+        }
+
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            color: var(--black);
+            background: var(--white);
+        }
+
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+
+        button,
+        select,
+        input {
+            font-family: inherit;
+        }
+
+
+        /* ===================================
+           HEADER
+        =================================== */
+
+        header {
+            width: 100%;
+            padding: 22px 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent);
+        }
+
+
+        .nav-icons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 19px;
+        }
+
+
+        .nav-icons span {
+            cursor: pointer;
+        }
+
+
+        /* MOBILE MENU BUTTON */
+
+        .menu-btn {
+            display: none;
+            font-size: 26px;
+            cursor: pointer;
+            user-select: none;
+            border: none;
+            background: transparent;
+            color: var(--black);
+            padding: 4px;
+            line-height: 1;
+        }
+
+        /* MOBILE NAVIGATION DROPDOWN */
+        .mobile-menu {
+            display: none;
+        }
+
+        @media (max-width: 750px) {
+            header {
+                position: sticky;
+                top: 0;
+            }
+
+            header nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                border-top: 1px solid var(--border);
+                border-bottom: 1px solid var(--border);
+                box-shadow: 0 10px 25px rgba(0,0,0,.08);
+                max-height: 0;
+                overflow: hidden;
+                opacity: 0;
+                visibility: hidden;
+                transition: max-height .35s ease, opacity .25s ease, visibility .25s ease;
+            }
+
+            header nav.active {
+                max-height: 420px;
+                opacity: 1;
+                visibility: visible;
+            }
+
+            header .nav-links {
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+                padding: 10px 6%;
+            }
+
+            header .nav-links li {
+                width: 100%;
+                border-bottom: 1px solid var(--border);
+            }
+
+            header .nav-links li:last-child {
+                border-bottom: none;
+            }
+
+            header .nav-links a {
+                display: block;
+                width: 100%;
+                padding: 16px 0;
+                font-size: 15px;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .menu-btn.active {
+                font-size: 0;
+            }
+
+            .menu-btn.active::before {
+                content: "✕";
+                font-size: 26px;
+            }
+        }
+
+
+        /* ===================================
+           SHOP HERO
+        =================================== */
+
+        .shop-hero {
+            background: var(--cream);
+            padding: 100px 6%;
+            text-align: center;
+        }
+
+
+        .shop-hero span {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 12px;
+            color: var(--accent);
+        }
+
+
+        .shop-hero h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(50px, 7vw, 90px);
+            margin: 18px 0;
+        }
+
+
+        .shop-hero p {
+            max-width: 550px;
+            margin: auto;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+
+        /* ===================================
+           SHOP SECTION
+        =================================== */
+
+        .shop-section {
+            padding: 80px 6%;
+        }
+
+
+        /* TOP BAR */
+
+        .shop-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            gap: 20px;
+        }
+
+
+        .product-count {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+
+        .shop-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+
+        .search-box {
+            border: 1px solid var(--border);
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+
+        .search-box input {
+            border: none;
+            outline: none;
+            width: 180px;
+            font-size: 13px;
+        }
+
+
+        .sort-select {
+            border: 1px solid var(--border);
+            padding: 12px 15px;
+            background: var(--white);
+            outline: none;
+            font-size: 13px;
+        }
+
+
+        /* ===================================
+           SHOP LAYOUT
+        =================================== */
+
+        .shop-layout {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 50px;
+        }
+
+
+        /* ===================================
+           FILTER SIDEBAR
+        =================================== */
+
+        .filters {
+            border-right: 1px solid var(--border);
+            padding-right: 30px;
+        }
+
+
+        .filter-group {
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border);
+        }
+
+
+        .filter-group h3 {
+            font-size: 14px;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+            color: var(--gray);
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+
+        .filter-option:hover {
+            color: var(--black);
+        }
+
+
+        .filter-option input {
+            accent-color: var(--black);
+        }
+
+
+        .color-options {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+
+        .color {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            border: 2px solid var(--white);
+            outline: 1px solid var(--border);
+            cursor: pointer;
+        }
+
+
+        .black {
+            background: #111111;
+        }
+
+
+        .white {
+            background: #ffffff;
+        }
+
+
+        .brown {
+            background: #8b5a2b;
+        }
+
+
+        .red {
+            background: #b52b2b;
+        }
+
+
+        .beige {
+            background: #d8c3a5;
+        }
+
+
+        .blue {
+            background: #1d4f91;
+        }
+
+
+        /* ===================================
+           PRODUCT GRID
+        =================================== */
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px 22px;
+        }
+
+
+        .product-card {
+            position: relative;
+        }
+
+
+        .product-image {
+            position: relative;
+            overflow: hidden;
+            background: #eeeeee;
+        }
+
+
+        .product-image img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+
+        .product-card:hover .product-image img {
+            transform: scale(1.06);
+        }
+
+
+        /* BADGE */
+
+        .badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+
+            background: var(--white);
+
+            padding: 7px 12px;
+
+            font-size: 10px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+        }
+
+
+        .sale-badge {
+            background: var(--black);
+            color: var(--white);
+        }
+
+
+        /* WISHLIST */
+
+        .wishlist {
+            position: absolute;
+
+            top: 15px;
+
+            right: 15px;
+
+            width: 40px;
+
+            height: 40px;
+
+            border-radius: 50%;
+
+            border: none;
+
+            background: var(--white);
+
+            cursor: pointer;
+
+            font-size: 18px;
+
+            transition: 0.3s;
+        }
+
+
+        .wishlist:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
+
+        /* QUICK ADD */
+
+        .quick-add {
+            position: absolute;
+
+            bottom: 15px;
+
+            left: 15px;
+
+            right: 15px;
+
+            padding: 14px;
+
+            background: var(--white);
+
+            border: none;
+
+            cursor: pointer;
+
+            font-size: 12px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+            opacity: 0;
+
+            transform: translateY(20px);
+
+            transition: 0.4s;
+        }
+
+
+        .product-card:hover .quick-add {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+
+        /* PRODUCT INFO */
+
+        .product-info {
+            padding-top: 18px;
+        }
+
+
+        .product-category {
+            font-size: 11px;
+
+            color: var(--gray);
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .product-name {
+            font-size: 15px;
+
+            font-weight: 500;
+
+            margin-bottom: 8px;
+        }
+
+
+        .product-price {
+            display: flex;
+
+            gap: 10px;
+
+            align-items: center;
+        }
+
+
+        .current-price {
+            font-size: 14px;
+
+            font-weight: 600;
+        }
+
+
+        .old-price {
+            font-size: 13px;
+
+            color: var(--gray);
+
+            text-decoration: line-through;
+        }
+
+
+        /* ===================================
+           LOAD MORE
+        =================================== */
+
+        .load-more {
+            display: flex;
+
+            justify-content: center;
+
+            margin-top: 70px;
+        }
+
+
+        .load-more button {
+            background: var(--black);
+
+            color: var(--white);
+
+            border: none;
+
+            padding: 17px 45px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+            font-size: 12px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .load-more button:hover {
+            background: var(--accent);
+        }
+
+
+        /* ===================================
+           FOOTER
+        =================================== */
+
+        footer {
+            background: #0a0a0a;
+
+            color: var(--white);
+
+            padding: 70px 6% 30px;
+        }
+
+
+        .footer-grid {
+            display: grid;
+
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+
+            gap: 40px;
+
+            margin-bottom: 60px;
+        }
+
+
+        .footer-brand h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 32px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .footer-brand p {
+            color: #999;
+
+            line-height: 1.7;
+
+            max-width: 300px;
+        }
+
+
+        .footer-column h4 {
+            margin-bottom: 20px;
+
+            font-size: 14px;
+        }
+
+
+        .footer-column a {
+            display: block;
+
+            color: #999;
+
+            margin-bottom: 12px;
+
+            font-size: 14px;
+        }
+
+
+        .footer-column a:hover {
+            color: var(--white);
+        }
+
+
+        .footer-bottom {
+            border-top: 1px solid #222;
+
+            padding-top: 25px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            font-size: 13px;
+
+            color: #777;
+        }
+
+
+        /* ===================================
+           TABLET
+        =================================== */
+
+        @media (max-width: 1000px) {
+
+            .shop-layout {
+                grid-template-columns: 200px 1fr;
+                gap: 30px;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        /* ===================================
+           MOBILE
+        =================================== */
+
+        @media (max-width: 750px) {
+
+            .nav-links {
+                display: none;
+            }
+
+
+            .menu-btn {
+                display: block;
+            }
+            
+
+
+            .shop-hero {
+                padding: 80px 6%;
+            }
+
+
+            .shop-top {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+
+            .shop-actions {
+                width: 100%;
+
+                flex-direction: column;
+            }
+
+
+            .search-box {
+                width: 100%;
+            }
+
+
+            .search-box input {
+                width: 100%;
+            }
+
+
+            .sort-select {
+                width: 100%;
+            }
+
+
+            .shop-layout {
+                grid-template-columns: 1fr;
+            }
+
+
+            .filters {
+                border-right: none;
+
+                padding-right: 0;
+
+                display: none;
+            }
+
+
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+
+                gap: 25px 15px;
+            }
+
+
+            .product-image img {
+                height: 280px;
+            }
+
+
+            .quick-add {
+                opacity: 1;
+
+                transform: translateY(0);
+
+                padding: 10px;
+
+                font-size: 10px;
+            }
+            
+
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+
+            .footer-bottom {
+                flex-direction: column;
+
+                gap: 10px;
+            }
+
+        }
+
+
+        @media (max-width: 450px) {
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .product-image img {
+                height: 400px;
+            }
+
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ===================================
+         HEADER
+    =================================== -->
+
+    <header>
+
+        <a href="index.html" class="logo">
+            VOGUE.
+        </a>
+
+
+        <nav id="mobileNav">
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="shop.html" class="active">Shop</a>
+                </li>
+
+                <li>
+                    <a href="collections.html">Collections</a>
+                </li>
+
+                <li>
+                    <a href="newarivals.html">New Arrivals</a>
+                </li>
+
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+
+        <div class="nav-icons">
+
+            <span>⌕</span>
+
+            <span>♡</span>
+
+            <span>🛍</span>
+
+            <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" type="button">☰</button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ===================================
+         SHOP HERO
+    =================================== -->
+
+    <section class="shop-hero">
+
+        <span>
+            Discover Your Style
+        </span>
+
+        <h1>
+            Shop All
+        </h1>
+
+        <p>
+            Explore our latest collection of fashion essentials,
+            statement pieces and timeless styles.
+        </p>
+
+    </section>
+
+
+
+    <!-- ===================================
+         SHOP SECTION
+    =================================== -->
+
+    <section class="shop-section">
+
+
+        <!-- TOP BAR -->
+
+        <div class="shop-top">
+
+            <div class="product-count">
+                Showing 12 Products
+            </div>
+
+
+            <div class="shop-actions">
+
+
+                <!-- SEARCH -->
+
+                <div class="search-box">
+
+                    <span>⌕</span>
+
+                    <input
+                        type="text"
+                        placeholder="Search products">
+
+                </div>
+
+
+                <!-- SORT -->
+
+                <select class="sort-select">
+
+                    <option>
+                        Sort by Latest
+                    </option>
+
+                    <option>
+                        Sort by Price: Low to High
+                    </option>
+
+                    <option>
+                        Sort by Price: High to Low
+                    </option>
+
+                    <option>
+                        Most Popular
+                    </option>
+
+                </select>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SHOP LAYOUT -->
+
+        <div class="shop-layout">
+
+
+            <!-- ===================================
+                 FILTERS
+            =================================== -->
+
+            <aside class="filters">
+
+
+                <!-- CATEGORY -->
+
+                <div class="filter-group">
+
+                    <h3>Category</h3>
+
+
+                    <label class="filter-option">
+
+                        <span>
+                            All Products
+                        </span>
+
+                        <input type="radio"
+                               name="category"
+                               checked>
+
+                    </label>
+
+
+                    <label class="filter-option">
+
+                        <span>
+                            Women
+                        </span>
+
+                        <input type="radio"
+                               name="category">
+
+                    </label>
+
+
+                    <label class="filter-option">
+
+                        <span>
+                            Men
+                        </span>
+
+                        <input type="radio"
+                               name="category">
+
+                    </label>
+
+
+                    <label class="filter-option">
+
+                        <span>
+                            Accessories
+                        </span>
+
+                        <input type="radio"
+                               name="category">
+
+                    </label>
+
+
+                </div>
+
+
+
+                <!-- SIZE -->
+
+                <div class="filter-group">
+
+                    <h3>Size</h3>
+
+
+                    <label class="filter-option">
+
+                        <span>Small</span>
+
+                        <input type="checkbox">
+
+                    </label>
+
+
+                    <label class="filter-option">
+
+                        <span>Medium</span>
+
+                        <input type="checkbox">
+
+                    </label>
+
+
+                    <label class="filter-option">
+
+                        <span>Large</span>
+
+                        <input type="checkbox">
+
+                    </label>
+
+
+                    <label class="filter-option">
+
+                        <span>XL</span>
+
+                        <input type="checkbox">
+
+                    </label>
+
+
+                </div>
+
+
+
+                <!-- COLOR -->
+
+                <div class="filter-group">
+
+                    <h3>Color</h3>
+
+
+                    <div class="color-options">
+
+                        <div class="color black"></div>
+
+                        <div class="color white"></div>
+
+                        <div class="color brown"></div>
+
+                        <div class="color red"></div>
+
+                        <div class="color beige"></div>
+
+                        <div class="color blue"></div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PRICE -->
+
+                <div class="filter-group">
+
+                    <h3>Price Range</h3>
+
+
+                    <label class="filter-option">
+
+                        <span>Under ₦20,000</span>
+
+                        <input type="checkbox">
+
+                    </label>
+
+
+                    <label class="filter-option">
+
+                        <span>₦20,000 - ₦50,000</span>
+
+                        <input type="checkbox">
+
+                    </label>
+
+
+                    <label class="filter-option">
+
+                        <span>₦50,000 - ₦100,000</span>
+
+                        <input type="checkbox">
+
+                    </label>
+
+
+                    <label class="filter-option">
+
+                        <span>Above ₦100,000</span>
+
+                        <input type="checkbox">
+
+                    </label>
+
+
+                </div>
+
+
+            </aside>
+
+
+
+            <!-- ===================================
+                 PRODUCTS
+            =================================== -->
+
+            <div class="product-grid">
+
+
+                <!-- PRODUCT 1 -->
+
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        <span class="badge">
+                            New
+                        </span>
+
+
+                        <button class="wishlist">
+                            ♡
+                        </button>
+
+
+                        <img
+                            src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=800&q=80"
+                            alt="Classic Evening Dress">
+
+
+                        <button class="quick-add">
+                            Quick Add
+                        </button>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <p class="product-category">
+                            Women
+                        </p>
+
+                        <h3 class="product-name">
+                            Classic Evening Dress
+                        </h3>
+
+                        <div class="product-price">
+
+                            <span class="current-price">
+                                ₦45,000
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PRODUCT 2 -->
+
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        <button class="wishlist">
+                            ♡
+                        </button>
+
+
+                        <img
+                            src="images/Shay.jfif"
+                            alt="Minimal Jacket">
+
+
+                        <button class="quick-add">
+                            Quick Add
+                        </button>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <p class="product-category">
+                            Women
+                        </p>
+
+                        <h3 class="product-name">
+                            Minimal Black Jacket
+                        </h3>
+
+                        <div class="product-price">
+
+                            <span class="current-price">
+                                ₦55,000
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PRODUCT 3 -->
+
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        <span class="badge sale-badge">
+                            Sale
+                        </span>
+
+
+                        <button class="wishlist">
+                            ♡
+                        </button>
+
+
+                        <img
+                            src="images/Herren Lässiges Streetstyle gestreiftes besticktes blaues Jeanshemd mit Kurzarm.jfif"
+                            alt="Premium Shirt">
+
+
+                        <button class="quick-add">
+                            Quick Add
+                        </button>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <p class="product-category">
+                            Men
+                        </p>
+
+                        <h3 class="product-name">
+                            Premium Casual Shirt
+                        </h3>
+
+                        <div class="product-price">
+
+                            <span class="current-price">
+                                ₦22,000
+                            </span>
+
+                            <span class="old-price">
+                                ₦28,000
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PRODUCT 4 -->
+
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        <button class="wishlist">
+                            ♡
+                        </button>
+
+
+                        <img
+                            src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=800&q=80"
+                            alt="Streetwear">
+
+
+                        <button class="quick-add">
+                            Quick Add
+                        </button>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <p class="product-category">
+                            Men
+                        </p>
+
+                        <h3 class="product-name">
+                            Modern Streetwear
+                        </h3>
+
+                        <div class="product-price">
+
+                            <span class="current-price">
+                                ₦38,000
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PRODUCT 5 -->
+
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        <span class="badge">
+                            New
+                        </span>
+
+
+                        <button class="wishlist">
+                            ♡
+                        </button>
+
+
+                        <img
+                            src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=800&q=80"
+                            alt="Casual Outfit">
+
+
+                        <button class="quick-add">
+                            Quick Add
+                        </button>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <p class="product-category">
+                            Women
+                        </p>
+
+                        <h3 class="product-name">
+                            Everyday Casual Set
+                        </h3>
+
+                        <div class="product-price">
+
+                            <span class="current-price">
+                                ₦42,000
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PRODUCT 6 -->
+
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        <button class="wishlist">
+                            ♡
+                        </button>
+
+
+                        <img
+                            src="images/leather bag.jfif"
+                            alt="Luxury Handbag">
+
+
+                        <button class="quick-add">
+                            Quick Add
+                        </button>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <p class="product-category">
+                            Accessories
+                        </p>
+
+                        <h3 class="product-name">
+                            Luxury Leather Bag
+                        </h3>
+
+                        <div class="product-price">
+
+                            <span class="current-price">
+                                ₦65,000
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PRODUCT 7 -->
+
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        <button class="wishlist">
+                            ♡
+                        </button>
+
+
+                        <img
+                            src="images/Our Summer 25 Collection is here! Discover KEA.jfif"
+                            alt="Fashion Outfit">
+
+
+                        <button class="quick-add">
+                            Quick Add
+                        </button>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <p class="product-category">
+                            Women
+                        </p>
+
+                        <h3 class="product-name">
+                            Signature Summer Dress
+                        </h3>
+
+                        <div class="product-price">
+
+                            <span class="current-price">
+                                ₦48,000
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PRODUCT 8 -->
+
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        <span class="badge sale-badge">
+                            Sale
+                        </span>
+
+
+                        <button class="wishlist">
+                            ♡
+                        </button>
+
+
+                        <img
+                            src="images/men 1.jfif"
+                            alt="Men Jacket">
+
+
+                        <button class="quick-add">
+                            Quick Add
+                        </button>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <p class="product-category">
+                            Men
+                        </p>
+
+                        <h3 class="product-name">
+                            Urban Denim Jacket
+                        </h3>
+
+                        <div class="product-price">
+
+                            <span class="current-price">
+                                ₦45,000
+                            </span>
+
+                            <span class="old-price">
+                                ₦60,000
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PRODUCT 9 -->
+
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        <button class="wishlist">
+                            ♡
+                        </button>
+
+
+                        <img
+                            src="images/Effortlessly Stylish Chin-Length Hairstyles.jfif"
+                            alt="Luxury Outfit">
+
+
+                        <button class="quick-add">
+                            Quick Add
+                        </button>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <p class="product-category">
+                            Women
+                        </p>
+
+                        <h3 class="product-name">
+                            Elegant Evening Wear
+                        </h3>
+
+                        <div class="product-price">
+
+                            <span class="current-price">
+                                ₦75,000
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- LOAD MORE -->
+
+        <div class="load-more">
+
+            <button>
+                Load More Products
+            </button>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ===================================
+         FOOTER
+    =================================== -->
+
+    <footer>
+
+
+        <div class="footer-grid">
+
+
+            <div class="footer-brand">
+
+                <h2>
+                    VOGUE.
+                </h2>
+
+                <p>
+                    A modern fashion destination bringing you
+                    timeless, expressive and contemporary styles.
+                </p>
+
+            </div>
+
+
+
+            <div class="footer-column">
+
+                <h4>Shop</h4>
+
+                <a href="women.html">Women</a>
+
+                <a href="men.html">Men</a>
+
+                <a href="collections.html">Accessories</a>
+
+                <a href="newarivals.html">New Arrivals</a>
+
+            </div>
+
+
+
+            <div class="footer-column">
+
+                <h4>Help</h4>
+
+                <a href="contact.html">Contact Us</a>
+
+                <a href="#">Shipping</a>
+
+                <a href="#">Returns</a>
+
+                <a href="#">FAQ</a>
+
+            </div>
+
+
+
+            <div class="footer-column">
+
+                <h4>Follow Us</h4>
+
+                <a href="#">Instagram</a>
+
+                <a href="#">Facebook</a>
+
+                <a href="#">TikTok</a>
+
+                <a href="#">Pinterest</a>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 VOGUE Fashion Store. All Rights Reserved.
+            </span>
+
+
+            <span>
+                Privacy Policy | Terms & Conditions
+            </span>
+
+
+        </div>
+
+
+    </footer>
+
+
+    <!-- ===================================
+         JAVASCRIPT
+    =================================== -->
+
+    <script>
+
+        /* WISHLIST BUTTON */
+
+        const wishlistButtons =
+            document.querySelectorAll(".wishlist");
+
+
+        wishlistButtons.forEach(button => {
+
+            button.addEventListener("click", function () {
+
+                if (this.innerHTML === "♡") {
+
+                    this.innerHTML = "♥";
+
+                } else {
+
+                    this.innerHTML = "♡";
+
+                }
+
+            });
+
+        });
+
+
+
+        /* QUICK ADD */
+
+        const quickAddButtons =
+            document.querySelectorAll(".quick-add");
+
+
+        quickAddButtons.forEach(button => {
+
+            button.addEventListener("click", function () {
+
+                const product =
+                    this.closest(".product-card")
+                    .querySelector(".product-name")
+                    .innerText;
+
+
+                alert(
+                    product +
+                    " added to cart!"
+                );
+
+            });
+
+        });
+        /* MOBILE MENU */
+        const menuBtn = document.getElementById("menuBtn");
+        const mobileNav = document.getElementById("mobileNav");
+
+        menuBtn.addEventListener("click", function () {
+            const isOpen = mobileNav.classList.toggle("active");
+
+            menuBtn.classList.toggle("active", isOpen);
+            menuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+            menuBtn.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+        });
+
+        /* CLOSE MENU AFTER CLICKING A LINK */
+        mobileNav.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", function () {
+                mobileNav.classList.remove("active");
+                menuBtn.classList.remove("active");
+                menuBtn.setAttribute("aria-expanded", "false");
+                menuBtn.setAttribute("aria-label", "Open menu");
+            });
+        });
+
+        /* CLOSE MENU WHEN SCREEN BECOMES DESKTOP SIZE */
+        window.addEventListener("resize", function () {
+            if (window.innerWidth > 750) {
+                mobileNav.classList.remove("active");
+                menuBtn.classList.remove("active");
+                menuBtn.setAttribute("aria-expanded", "false");
+                menuBtn.setAttribute("aria-label", "Open menu");
+            }
+        });
+
+
+    </script>
+
+
+</body>
+
+</html>
